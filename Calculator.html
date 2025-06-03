@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background-color: black;
+        }
+        .container{
+            margin: 10px;
+            padding: 30px;
+            background-color: black;
+            width:20%;
+            height: 230 px;
+            box-shadow: 1px 1px 2px 2px blue;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        input{
+            width: 80%;
+            padding:20px 20px;
+            border-radius:15px;
+            border: rgb(219, 219, 119);
+            margin: 15px 0px;
+        }
+        .btn {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+        button{
+            margin: 7px 0px;
+            padding: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="container">
+        <div class="input">
+            <input type="text" id="inp"  placeholder="Calculate.....">
+        </div>
+        <div class="btn">
+            <button onclick="val('7')">7</button>
+            <button onclick="val('8')">8</button>
+            <button onclick="val('9')">9</button>
+            <button onclick="val('/')">/</button>
+            
+            <button onclick="val('4')">4</button>
+            <button onclick="val('5')">5</button>
+            <button onclick="val('6')">6</button>
+            <button onclick="val('*')">*</button>
+            
+            <button onclick="val('1')">1</button>
+            <button onclick="val('2')">2</button>
+            <button onclick="val('3')">3</button>
+            <button onclick="val('-')">-</button>
+            
+            <button onclick="val('0')">0</button>
+            <button onclick="val('.')">.</button>
+            <button onclick="clearInp()">C</button>
+            <button onclick="val('+')">+</button>
+            
+            <button onclick="val('%')">%</button>
+            <button onclick="Calculate()" style="grid-column: span 2;">=</button>
+        </div>
+    </div>
+    </center>
+    
+    <script>
+        let inp=document.getElementById("inp");
+
+        function Calculate(){
+            const result=inp.value=eval(inp.value);
+        }
+     
+        function val(btnVal){
+            inp.value += btnVal;
+        }
+        
+        function clearInp(){
+            inp.value = "";
+        }
+    </script>
+</body>
+</html>
